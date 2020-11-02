@@ -1,11 +1,8 @@
-import java.util.Scanner;
 
 public class Game {
     GameBoard board;
     int turn;
     AI AI;
-    String player1;
-    String player2;
 
     public Game() {
         board = new GameBoard();
@@ -55,24 +52,17 @@ public class Game {
         }
     }
 
-    public void receiveInput() {
-        Scanner keyboard = new Scanner(System.in);
-        do {
-            System.out.println("Please input coordinates for your move (row column) with space separating each.");
-            System.out.println(board);
-            int row = keyboard.nextInt();
-            int column = keyboard.nextInt();
+    public boolean receiveInput(int row, int column, String OX) {
             if (row > 3 || row < 1 || column > 3 || column < 1) {
-                System.out.println("Invalid input. Out of bounds. Please try again.");
+                return false;
             }
             else if (board.board[row - 1][column - 1].value != GameSquare.Value.BLANK) {
-                System.out.println("Invalid input. Square already filled. Please try again.");
+                return false;
             }
             else {
-                board.board[row - 1][column - 1].setValue("X");
-                break;
+                board.board[row - 1][column - 1].setValue(OX);
+                return true;
             }
-        } while(true);
     }
 
     public static void main (String[] args) {
