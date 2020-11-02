@@ -40,18 +40,6 @@ public class Game {
         return finished;
     }
 
-    public void takeTurn() {
-        if(turn == 0) {
-            receiveInput();
-            System.out.println(board);
-            turn = 1;
-        } else {
-            AI.AIMove();
-            System.out.println(board);
-            turn = 0;
-        }
-    }
-
     public boolean receiveInput(int row, int column, String OX) {
             if (row > 3 || row < 1 || column > 3 || column < 1) {
                 return false;
