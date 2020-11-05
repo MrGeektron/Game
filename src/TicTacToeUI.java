@@ -44,14 +44,25 @@ class TicTacToeUI extends JFrame implements /*ItemListener,*/ ActionListener {
             for(int i = 0; i < gameSquares.length; i++) {
                 if(e.getSource().equals(gameSquares[i])) {
                     if(state) {
-                        state = false;
-                        icon = iconX;
+                        if(controller.isValidMove(i+1, 1)) {
+                            state = false;
+                            icon = iconX;
+                            gameSquares[i].setIcon(icon);
+                        }
+                        else {
+                            //TODO: add invalid move dialog
+                        }
                     }
                     else {
-                        state = true;
-                        icon = iconO;
+                        if(controller.isValidMove(i+1, 2)) {
+                            state = true;
+                            icon = iconO;
+                            gameSquares[i].setIcon(icon);
+                        }
+                        else {
+                            //TODO: add invalid move dialog
+                        }
                     }
-                    gameSquares[i].setIcon(icon);
                 }
             }
         }
