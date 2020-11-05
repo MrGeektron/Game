@@ -9,11 +9,19 @@ public class TicTacToeController {
     }
 
     public boolean isValidMove(int square, int player) {
-        return false;
+        int row = ((square - 1) / 3) + 1;
+        int column = square % 3;
+        if (column == 0) column = column + 3;
+        if(player == 1) {
+            return game.receiveInput(row, column, "X");
+        }
+        else {
+            return game.receiveInput(row, column, "O");
+        }
     }
 
-    public boolean isGameFinished() {
-        return false;
+    public GameEndTuple isGameFinished() {
+        return game.isGameFinished();
     }
 
 

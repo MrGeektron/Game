@@ -34,7 +34,6 @@ public class Game {
         return new GameEndTuple(true, "Tie");
     }
 
-    //TODO Have controller use receive input
     public boolean receiveInput(int row, int column, String OX) {
             if (row > 3 || row < 1 || column > 3 || column < 1) {
                 return false;
