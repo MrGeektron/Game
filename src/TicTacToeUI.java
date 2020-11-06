@@ -28,8 +28,8 @@ class TicTacToeUI extends JFrame implements /*ItemListener,*/ ActionListener {
 
         gameSquares = new JButton[9];
         state = true;
-        iconX = new ImageIcon("X.png");
-        iconO = new ImageIcon("O.png");
+        iconX = new ImageIcon("icons/X.png");
+        iconO = new ImageIcon("icons/O.png");
 
         this.controller = controller;
     }
